@@ -5,6 +5,7 @@ import (
 )
 
 func main() {
+	web.ConnectWithMgo()
 	router := web.NewRouter()
 	router.Run(":3000")
 }

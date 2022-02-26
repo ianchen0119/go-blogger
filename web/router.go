@@ -29,6 +29,8 @@ func NewRouter() *gin.Engine {
 			group.GET(route.Pattern, route.HandlerFunc)
 		case http.MethodPost:
 			group.POST(route.Pattern, route.HandlerFunc)
+		case http.MethodPatch:
+			group.PATCH(route.Pattern, route.HandlerFunc)
 		case http.MethodDelete:
 			group.DELETE(route.Pattern, route.HandlerFunc)
 		}
@@ -55,6 +57,12 @@ var routes = Routes{
 		http.MethodPost,
 		"/post/:id",
 		PostContentById,
+	},
+	{
+		"PatchContentById",
+		http.MethodPatch,
+		"/post/:id",
+		PatchContentById,
 	},
 	{
 		"DeleteContentById",
